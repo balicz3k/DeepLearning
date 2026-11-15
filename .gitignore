@@ -21,3 +21,9 @@ handson-ml3/
 # Konfiguracja narzędzi (lokalna)
 .agents/
 .cursor/
+
+# Pobrane zbiory danych i wagi modeli (torchvision)
+dane/
+
+# Logi uruchomień
+*.log
