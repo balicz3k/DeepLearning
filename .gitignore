@@ -17,3 +17,7 @@ handson-ml3/
 
 *.pth
 *.onnx
+
+# Konfiguracja narzędzi (lokalna)
+.agents/
+.cursor/
