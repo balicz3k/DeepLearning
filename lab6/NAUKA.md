@@ -76,12 +76,14 @@ Stałe: okno 80 znaków, przesunięcie 3, embedding 48, stan ukryty 96, batch 12
 | RNN | 21 701 | 1,780 | 5,93 | 0,509 |
 | LSTM | 63 749 | 1,748 | 5,74 | 0,497 |
 | GRU | 49 733 | **1,669** | **5,31** | **0,524** |
-| GRU+attention | 49 830 | 2,441 | 11,49 | 0,326 |
+| GRU+attention | 49 830 | 2,463 | 11,74 | 0,318 |
 | GRU+attention+ostatni stan | 54 918 | 1,661 | 5,27 | 0,521 |
 
 - GRU najlepszy z modeli rekurencyjnych; różnice niewielkie przy 8 epokach.
 - Czyste attention przez 6 epok stoi na poziomie modelu częstości znaków i rusza dopiero w 7.–8. epoce.
-- Po treningu attention patrzy prawie tylko na koniec sekwencji: średnio ostatnie 10 pozycji ma 98,4% wagi.
+- Po treningu attention patrzy prawie tylko na koniec sekwencji: średnio ostatnie 10 pozycji ma 99,0% wagi.
+- Losowy generator (same częstości znaków) daje ciąg liter prawie bez słów – model wyraźnie nauczył się lokalnej składni.
+- Na GPU część operacji cuDNN nie jest deterministyczna, więc ponowne uruchomienie daje minimalnie inne liczby (najbardziej dla GRU+attention).
 - Generowany tekst: poprawne spacje, interpunkcja, imiona („pooh”, „piglet”), częste słowa; brak sensu zdań. Niska temperatura → powtórzenia, wysoka → zmyślone słowa.
 
 ---
